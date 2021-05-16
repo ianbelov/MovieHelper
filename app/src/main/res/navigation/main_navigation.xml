@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    tools:ignore="InvalidNavigation">
+    <fragmentTab
+        android:id="@+id/main_main"
+        android:name="com.a.moviehelper.ui.feature.main.main.MainFragment"
+        tools:layout="@layout/fragment_main" />
+    <fragmentTab
+        android:id="@+id/main_search"
+        android:name="com.a.moviehelper.ui.feature.main.search.SearchFragment"
+        tools:layout="@layout/fragment_search" />
+    <fragmentTab
+        android:id="@+id/main_authorized_profile"
+        android:name="com.a.moviehelper.ui.feature.main.authprofile.AuthProfileFragment"
+        tools:layout="@layout/fragment_auth_profile" />
+    <fragmentTab
+        android:id="@+id/main_profile"
+        android:name="com.a.moviehelper.ui.feature.main.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
