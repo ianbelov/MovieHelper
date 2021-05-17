@@ -7,4 +7,7 @@ interface SearchView : BaseView {
     fun setSearchResult(results: List<SearchModel>)
     fun addSearchResults(results: List<SearchModel>)
     fun hideSearch()
+    fun clearSearch()
+    fun showProgressBar()
+    fun hideProgressBar()
 }

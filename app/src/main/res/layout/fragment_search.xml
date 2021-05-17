@@ -16,6 +16,17 @@
             layout="@layout/toolbar_search" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.a.moviehelper.ui.view.ProgressIndicatorView
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/search_recycler_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:id="@+id/main_view"
         android:layout_width="match_parent"
@@ -24,7 +35,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/search_recycler_view"

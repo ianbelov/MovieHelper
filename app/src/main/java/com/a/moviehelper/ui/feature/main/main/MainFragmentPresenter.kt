@@ -36,7 +36,17 @@ class MainFragmentPresenter @Inject constructor(
         moviesRepository.getShows(1)
             .subscribeOn(scheduler.io())
             .map { it.results }
-            .map { it -> it.map { MovieModel(it.name, it.id, it.poster_path, it.first_air_date, "") } }
+            .map { it ->
+                it.map {
+                    MovieModel(
+                        it.name,
+                        it.id,
+                        it.poster_path,
+                        it.first_air_date.toString(),
+                        ""
+                    )
+                }
+            }
             .observeOn(scheduler.ui())
             .doOnSubscribe { getView()?.showProgressBar() }
             .doFinally { getView()?.hideProgressBar() }

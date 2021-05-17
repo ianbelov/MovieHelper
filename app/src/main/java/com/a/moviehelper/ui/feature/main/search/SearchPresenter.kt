@@ -17,6 +17,8 @@ class SearchPresenter @Inject constructor(
     BasePresenter<SearchView>() {
     private var searchSubject = PublishSubject.create<String>()
     private var movieSearchPage = 1
+    private var showSearchPage = 1
+    private var genreSearchPage = 1
     private var searchQuery = ""
 
     fun subscribeToSearchSubject() {
@@ -25,6 +27,7 @@ class SearchPresenter @Inject constructor(
             .observeOn(scheduler.ui())
             .doOnNext { searchQuery = it }
             .subscribeBy(onNext = {
+                getView()?.clearSearch()
                 search(it.trim())
             }, onError = { Log.d("rx", it.message.toString()) })
             .toAutoDisposable()
@@ -32,6 +35,7 @@ class SearchPresenter @Inject constructor(
 
     fun onSearchQueryChanged(query: String) {
         movieSearchPage = 1
+        showSearchPage = 1
         if (query.isEmpty()) {
             getView()?.hideSearch()
             searchQuery = ""
@@ -40,11 +44,8 @@ class SearchPresenter @Inject constructor(
     }
 
     private fun search(query: String) {
-        Log.d("search for ", query)
-        searchRepository.search(query, movieSearchPage)
+        searchRepository.searchMovies(query, movieSearchPage)
             .map { it ->
-                Log.d("searchmap", it.results.toString())
-                Log.d("searchmap page", it.page.toString())
                 it.results.map {
                     SearchModel(
                         it.title,
@@ -56,17 +57,38 @@ class SearchPresenter @Inject constructor(
             }
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.ui())
+            .doOnSubscribe { getView()?.showProgressBar() }
+            .doFinally { getView()?.hideProgressBar() }
             .subscribeBy(onSuccess = {
-                Log.d("onsuccess", it.toString())
-                getView()?.setSearchResult(it)
+                getView()?.addSearchResults(it)
                 ++movieSearchPage
+            }, onError = { Log.d("rx", it.message.toString()) })
+            .toAutoDisposable()
+        searchRepository.searchShows(query, movieSearchPage)
+            .map { it ->
+                it.results.map {
+                    SearchModel(
+                        it.name,
+                        it.first_air_date.toString(),
+                        "TV Series",
+                        it.poster_path.toString()
+                    )
+                }
+            }
+            .subscribeOn(scheduler.io())
+            .observeOn(scheduler.ui())
+            .doOnSubscribe { getView()?.showProgressBar() }
+            .doFinally { getView()?.hideProgressBar() }
+            .subscribeBy(onSuccess = {
+                getView()?.addSearchResults(it)
+                Log.d("add shows", "happened")
+                ++showSearchPage
             }, onError = { Log.d("rx", it.message.toString()) })
             .toAutoDisposable()
     }
 
     fun searchMore() {
-        Log.d("search mor", "next")
-        searchRepository.search(searchQuery, movieSearchPage)
+        searchRepository.searchMovies(searchQuery, movieSearchPage)
             .map { it ->
                 it.results.map {
                     SearchModel(
@@ -80,11 +102,49 @@ class SearchPresenter @Inject constructor(
             .subscribeOn(scheduler.io())
             .observeOn(scheduler.ui())
             .subscribeBy(onSuccess = {
-                Log.d("more", "load")
                 getView()?.addSearchResults(it)
                 ++movieSearchPage
             }, onError = { Log.d("rx", it.message.toString()) })
             .toAutoDisposable()
+        searchRepository.searchShows(searchQuery, movieSearchPage)
+            .map { it ->
+                it.results.map {
+                    SearchModel(
+                        it.name,
+                        it.first_air_date.toString(),
+                        "TV Series",
+                        it.poster_path.toString()
+                    )
+                }
+            }
+            .subscribeOn(scheduler.io())
+            .observeOn(scheduler.ui())
+            .subscribeBy(onSuccess = {
+                getView()?.addSearchResults(it)
+                Log.d("add shows", "happened")
+                ++showSearchPage
+            }, onError = { Log.d("rx", it.message.toString()) })
+            .toAutoDisposable()
     }
 
+    fun searchGenre(id: Int) = searchRepository.searchGenre(id, genreSearchPage)
+        .map { it ->
+            it.results.map {
+                SearchModel(
+                    it.title,
+                    it.release_date,
+                    it.overview,
+                    it.poster_path.toString()
+                )
+            }
+        }
+        .subscribeOn(scheduler.io())
+        .observeOn(scheduler.ui())
+        .doOnSubscribe { getView()?.showProgressBar() }
+        .doFinally { getView()?.hideProgressBar() }
+        .subscribeBy(onSuccess = {
+            getView()?.addSearchResults(it)
+            ++genreSearchPage
+        }, onError = { Log.d("rx", it.message.toString()) })
+        .toAutoDisposable()
 }

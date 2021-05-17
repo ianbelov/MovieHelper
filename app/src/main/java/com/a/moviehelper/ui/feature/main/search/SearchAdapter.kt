@@ -46,6 +46,10 @@ class SearchAdapter constructor(
         notifyDataSetChanged()
     }
 
+    fun clear(){
+        movies.clear()
+    }
+
     class ViewHolder(var binding: ItemMovieWideBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SearchModel, imageLoader: CoilImageLoader) {
             binding.run {
