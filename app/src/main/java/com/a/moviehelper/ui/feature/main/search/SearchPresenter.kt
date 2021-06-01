@@ -22,7 +22,6 @@ class SearchPresenter @Inject constructor(
     private var searchQuery = ""
 
     fun subscribeToSearchSubject() {
-        Log.d("suscrobe", "next")
         searchSubject.debounce(500, TimeUnit.MILLISECONDS)
             .observeOn(scheduler.ui())
             .doOnNext { searchQuery = it }
@@ -64,6 +63,8 @@ class SearchPresenter @Inject constructor(
                 ++movieSearchPage
             }, onError = { Log.d("rx", it.message.toString()) })
             .toAutoDisposable()
+
+
         searchRepository.searchShows(query, movieSearchPage)
             .map { it ->
                 it.results.map {

@@ -10,7 +10,7 @@ import com.a.moviehelper.databinding.ItemMovieBinding
 
 class MainMovieAdapter constructor(
     private val imageLoader: CoilImageLoader,
-    private val onMovieClick: () -> Unit
+    private val onMovieClick: (id: String) -> Unit
 ) : RecyclerView.Adapter<MainMovieAdapter.ViewHolder>() {
 
     private var movies: ArrayList<MovieModel> = ArrayList()
@@ -21,9 +21,6 @@ class MainMovieAdapter constructor(
     ): ViewHolder {
         val binding =
             ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                .apply {
-                    root.setOnClickListener { onMovieClick.invoke() }
-                }
         return ViewHolder(binding)
     }
 
@@ -31,6 +28,7 @@ class MainMovieAdapter constructor(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(movies[position], imageLoader)
+        holder.binding.root.setOnClickListener { onMovieClick(movies[position].id.toString()) }
     }
 
     fun addData(movieList: List<MovieModel>) {

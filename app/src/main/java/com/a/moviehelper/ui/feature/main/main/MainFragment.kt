@@ -54,7 +54,7 @@ class MainFragment : BaseFragment<MainView, MainFragmentPresenter>(R.layout.frag
     private fun initAdapters() {
         movieAdapter = MainMovieAdapter(
             imageLoader = imageLoader,
-            onMovieClick = { },
+            onMovieClick = { Log.d("clicked", it) },
         )
         showAdapter = MainMovieAdapter(
             imageLoader = imageLoader,

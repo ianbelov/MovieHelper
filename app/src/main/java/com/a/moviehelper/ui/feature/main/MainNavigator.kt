@@ -42,6 +42,10 @@ class MainNavigator @Inject constructor(
             navigate(R.id.main_main)
         }
     }
+
+    override fun navigateToDetails() {
+        TODO("Not yet implemented")
+    }
 }
 
 interface IMainNavigator {
@@ -50,5 +54,5 @@ interface IMainNavigator {
     fun navigateToUnauthorizedProfile()
     fun navigateToSearch()
     fun navigateToMain()
-
+    fun navigateToDetails()
 }

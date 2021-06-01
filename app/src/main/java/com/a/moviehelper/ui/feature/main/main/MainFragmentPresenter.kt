@@ -5,6 +5,7 @@ import com.a.moviehelper.common.base.BasePresenter
 import com.a.moviehelper.common.rx.RxSchedulers
 import com.a.moviehelper.core.network.movies.MainRepository
 import com.a.moviehelper.core.network.movies.MovieModel
+import com.a.moviehelper.ui.feature.main.MainNavigator
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 class MainFragmentPresenter @Inject constructor(
     val moviesRepository: MainRepository,
-    val scheduler: RxSchedulers
+    val scheduler: RxSchedulers,
+    val navigator: MainNavigator
 ) : BasePresenter<MainView>() {
 
     var moviePage = 1
@@ -55,5 +57,9 @@ class MainFragmentPresenter @Inject constructor(
             }, {
                 Log.d("rx", it.message.toString())
             }).toAutoDisposable()
+    }
+
+    fun movieClicked(id:String){
+        navigator.navigateToDetails()
     }
 }

@@ -1,0 +1,76 @@
+package com.a.moviehelper.ui.feature.details
+
+import android.os.Bundle
+import androidx.core.os.bundleOf
+import com.a.moviehelper.R
+import com.a.moviehelper.common.navigation.submitNavigation
+import com.a.moviehelper.common.rx.RxActivityProvider
+import com.a.moviehelper.ui.feature.details.movie.MovieDetailsInputModel
+import com.a.moviehelper.ui.feature.details.person.PersonDetailsInputModel
+import com.a.moviehelper.ui.feature.details.show.ShowDetailsInputModel
+import javax.inject.Inject
+
+class DetailNavigator @Inject constructor(private val activityProvider: RxActivityProvider) :
+    IDetailNavigator {
+
+    override fun initFlow(inputModel: DetailsInputModel?) {
+        activityProvider.submitNavigation {
+            val graph = this.navInflater.inflate(R.navigation.detail_navigation)
+            var arg: Bundle = bundleOf()
+            when (inputModel) {
+                is DetailsInputModel.Movie
+                -> {
+                    graph.startDestination = R.id.detail_movie
+                    arg = bundleOf("id" to MovieDetailsInputModel(inputModel.id))
+                }
+                is DetailsInputModel.Show -> {
+                    graph.startDestination = R.id.detail_show
+                    arg = bundleOf("id" to ShowDetailsInputModel(inputModel.id))
+                }
+                is DetailsInputModel.Person -> {
+                    graph.startDestination = R.id.detail_person
+                    arg = bundleOf("id" to PersonDetailsInputModel(inputModel.id))
+                }
+            }
+            setGraph(graph, arg)
+        }
+    }
+
+    override fun navigateToMovieDetail(id: Bundle) {
+        activityProvider.submitNavigation {
+            navigate(R.id.detail_movie, id)
+        }
+    }
+
+    override fun navigateToShowDetail(id: Bundle) {
+        activityProvider.submitNavigation {
+            navigate(R.id.detail_show, id)
+        }
+    }
+
+    override fun navigateToPersonDetail(id: Bundle) {
+        activityProvider.submitNavigation {
+            navigate(R.id.detail_person, id)
+        }
+    }
+
+    override fun navigateBack() {
+        activityProvider.submitNavigation {
+            popBackStack()
+        }
+    }
+
+    override fun navigateBackFromDetails() {
+        activityProvider.submitActivity { finish() }
+    }
+
+}
+
+interface IDetailNavigator {
+    fun initFlow(inputModel: DetailsInputModel?)
+    fun navigateToMovieDetail(id: Bundle)
+    fun navigateToShowDetail(id: Bundle)
+    fun navigateBackFromDetails() {}
+    fun navigateBack() {}
+    fun navigateToPersonDetail(id: Bundle)
+}
