@@ -43,10 +43,14 @@ class MainFragmentPresenter @Inject constructor(
                 it.map {
                     MovieModel(
                         it.name,
+                        it.imdb_id,
                         it.id,
+                        "",
+                        "",
                         it.poster_path,
+                        it.backdrop_path,
                         it.first_air_date.toString(),
-                        ""
+                        it.overview
                     )
                 }
             }

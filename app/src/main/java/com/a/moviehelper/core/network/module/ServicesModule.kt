@@ -1,5 +1,6 @@
 package com.a.moviehelper.core.network.module
 
+import com.a.moviehelper.core.network.details.DetailsService
 import com.a.moviehelper.core.network.movies.MoviesService
 import com.a.moviehelper.core.network.search.SearchService
 import dagger.Module
@@ -18,4 +19,7 @@ object ServicesModule {
     @Singleton
     fun provideSearchService(retrofit: Retrofit) = retrofit.create(SearchService::class.java)
 
+    @Provides
+    @Singleton
+    fun provideDetailsService(retrofit: Retrofit) = retrofit.create(DetailsService::class.java)
 }

@@ -6,7 +6,9 @@ import androidx.core.os.bundleOf
 import com.a.moviehelper.R
 import com.a.moviehelper.common.navigation.submitNavigation
 import com.a.moviehelper.common.rx.RxActivityProvider
+import com.a.moviehelper.ui.feature.details.movie.MOVIE_DETAILS_INPUT_MODEL
 import com.a.moviehelper.ui.feature.details.movie.MovieDetailsInputModel
+import com.a.moviehelper.ui.feature.details.show.SHOW_DETAILS_INPUT_MODEL
 import com.a.moviehelper.ui.feature.details.show.ShowDetailsInputModel
 import javax.inject.Inject
 
@@ -22,11 +24,12 @@ class DetailNavigator @Inject constructor(private val activityProvider: RxActivi
                 -> {
                     Log.d("details", "s")
                     graph.startDestination = R.id.detail_movie
-                    arg = bundleOf("id" to MovieDetailsInputModel(inputModel.id))
+                    arg =
+                        bundleOf(MOVIE_DETAILS_INPUT_MODEL to MovieDetailsInputModel(inputModel.id))
                 }
                 is DetailsInputModel.Show -> {
                     graph.startDestination = R.id.detail_show
-                    arg = bundleOf("id" to ShowDetailsInputModel(inputModel.id))
+                    arg = bundleOf(SHOW_DETAILS_INPUT_MODEL to ShowDetailsInputModel(inputModel.id))
                 }
             }
             setGraph(graph, arg)
