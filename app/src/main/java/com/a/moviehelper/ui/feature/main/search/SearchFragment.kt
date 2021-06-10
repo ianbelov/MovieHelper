@@ -60,7 +60,9 @@ class SearchFragment : BaseFragment<SearchView, SearchPresenter>(R.layout.fragme
 
     private fun initAdapter() {
         Log.d("init", "happened")
-        searchAdapter = SearchAdapter(imageLoader, {})
+        searchAdapter = SearchAdapter(imageLoader, {
+            presenter.movieClicked(it)
+        }, { presenter.showClicked(it) })
         binding.searchRecyclerView.run {
             layoutManager = LinearLayoutManager(context)
             adapter = searchAdapter

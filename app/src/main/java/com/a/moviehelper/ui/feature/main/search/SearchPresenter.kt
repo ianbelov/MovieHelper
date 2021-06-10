@@ -5,6 +5,8 @@ import com.a.moviehelper.common.base.BasePresenter
 import com.a.moviehelper.common.rx.RxSchedulers
 import com.a.moviehelper.core.network.search.SearchModel
 import com.a.moviehelper.core.network.search.SearchRepository
+import com.a.moviehelper.ui.feature.details.DetailsInputModel
+import com.a.moviehelper.ui.feature.main.IMainNavigator
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
@@ -12,7 +14,8 @@ import javax.inject.Inject
 
 class SearchPresenter @Inject constructor(
     private val searchRepository: SearchRepository,
-    private val scheduler: RxSchedulers
+    private val scheduler: RxSchedulers,
+    private val navigator:IMainNavigator
 ) :
     BasePresenter<SearchView>() {
     private var searchSubject = PublishSubject.create<String>()
@@ -47,10 +50,12 @@ class SearchPresenter @Inject constructor(
             .map { it ->
                 it.results.map {
                     SearchModel(
+                        it.id.toString(),
                         it.title,
                         it.release_date,
                         it.overview,
-                        it.poster_path.toString()
+                        it.poster_path.toString(),
+                        "movie"
                     )
                 }
             }
@@ -69,10 +74,12 @@ class SearchPresenter @Inject constructor(
             .map { it ->
                 it.results.map {
                     SearchModel(
+                        it.id.toString(),
                         it.name,
                         it.first_air_date.toString(),
                         "TV Series",
-                        it.poster_path.toString()
+                        it.poster_path.toString(),
+                        "show"
                     )
                 }
             }
@@ -93,10 +100,12 @@ class SearchPresenter @Inject constructor(
             .map { it ->
                 it.results.map {
                     SearchModel(
+                        it.id.toString(),
                         it.title,
                         it.release_date,
                         it.overview,
-                        it.poster_path.toString()
+                        it.poster_path.toString(),
+                        "movie"
                     )
                 }
             }
@@ -111,10 +120,12 @@ class SearchPresenter @Inject constructor(
             .map { it ->
                 it.results.map {
                     SearchModel(
+                        it.id.toString(),
                         it.name,
                         it.first_air_date.toString(),
                         "TV Series",
-                        it.poster_path.toString()
+                        it.poster_path.toString(),
+                        "show"
                     )
                 }
             }
@@ -132,10 +143,12 @@ class SearchPresenter @Inject constructor(
         .map { it ->
             it.results.map {
                 SearchModel(
+                    it.id.toString(),
                     it.title,
                     it.release_date,
                     it.overview,
-                    it.poster_path.toString()
+                    it.poster_path.toString(),
+                    "movie"
                 )
             }
         }
@@ -148,4 +161,12 @@ class SearchPresenter @Inject constructor(
             ++genreSearchPage
         }, onError = { Log.d("rx", it.message.toString()) })
         .toAutoDisposable()
+
+    fun movieClicked(id:String){
+        navigator.navigateToDetails(DetailsInputModel.Movie(id))
+    }
+
+    fun showClicked(id:String){
+        navigator.navigateToDetails(DetailsInputModel.Show(id))
+    }
 }

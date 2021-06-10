@@ -19,4 +19,7 @@
         android:id="@+id/main_profile"
         android:name="com.a.moviehelper.ui.feature.main.profile.ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/main_details"
+        android:name="com.a.moviehelper.ui.feature.details.DetailsActivity"/>
 </navigation>

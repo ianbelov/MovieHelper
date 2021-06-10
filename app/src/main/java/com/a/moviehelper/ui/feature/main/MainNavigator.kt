@@ -4,6 +4,9 @@ import androidx.core.os.bundleOf
 import com.a.moviehelper.R
 import com.a.moviehelper.common.navigation.submitNavigation
 import com.a.moviehelper.common.rx.RxActivityProvider
+import com.a.moviehelper.ui.feature.details.DETAILS_INPUT_MODEL_KEY
+import com.a.moviehelper.ui.feature.details.DetailsInputModel
+import com.a.moviehelper.ui.feature.details.movie.MovieDetailsInputModel
 import javax.inject.Inject
 
 class MainNavigator @Inject constructor(
@@ -43,8 +46,10 @@ class MainNavigator @Inject constructor(
         }
     }
 
-    override fun navigateToDetails() {
-        TODO("Not yet implemented")
+    override fun navigateToDetails(id: DetailsInputModel) {
+        activityProvider.submitNavigation {
+            navigate(R.id.main_details, bundleOf(DETAILS_INPUT_MODEL_KEY to id))
+        }
     }
 }
 
@@ -54,5 +59,5 @@ interface IMainNavigator {
     fun navigateToUnauthorizedProfile()
     fun navigateToSearch()
     fun navigateToMain()
-    fun navigateToDetails()
+    fun navigateToDetails(id: DetailsInputModel)
 }

@@ -1,12 +1,12 @@
 package com.a.moviehelper.ui.feature.details
 
 import android.os.Bundle
+import android.util.Log
 import androidx.core.os.bundleOf
 import com.a.moviehelper.R
 import com.a.moviehelper.common.navigation.submitNavigation
 import com.a.moviehelper.common.rx.RxActivityProvider
 import com.a.moviehelper.ui.feature.details.movie.MovieDetailsInputModel
-import com.a.moviehelper.ui.feature.details.person.PersonDetailsInputModel
 import com.a.moviehelper.ui.feature.details.show.ShowDetailsInputModel
 import javax.inject.Inject
 
@@ -20,16 +20,13 @@ class DetailNavigator @Inject constructor(private val activityProvider: RxActivi
             when (inputModel) {
                 is DetailsInputModel.Movie
                 -> {
+                    Log.d("details", "s")
                     graph.startDestination = R.id.detail_movie
                     arg = bundleOf("id" to MovieDetailsInputModel(inputModel.id))
                 }
                 is DetailsInputModel.Show -> {
                     graph.startDestination = R.id.detail_show
                     arg = bundleOf("id" to ShowDetailsInputModel(inputModel.id))
-                }
-                is DetailsInputModel.Person -> {
-                    graph.startDestination = R.id.detail_person
-                    arg = bundleOf("id" to PersonDetailsInputModel(inputModel.id))
                 }
             }
             setGraph(graph, arg)
@@ -45,12 +42,6 @@ class DetailNavigator @Inject constructor(private val activityProvider: RxActivi
     override fun navigateToShowDetail(id: Bundle) {
         activityProvider.submitNavigation {
             navigate(R.id.detail_show, id)
-        }
-    }
-
-    override fun navigateToPersonDetail(id: Bundle) {
-        activityProvider.submitNavigation {
-            navigate(R.id.detail_person, id)
         }
     }
 
@@ -72,5 +63,4 @@ interface IDetailNavigator {
     fun navigateToShowDetail(id: Bundle)
     fun navigateBackFromDetails() {}
     fun navigateBack() {}
-    fun navigateToPersonDetail(id: Bundle)
 }

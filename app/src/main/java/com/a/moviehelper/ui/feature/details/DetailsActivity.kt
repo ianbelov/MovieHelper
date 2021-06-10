@@ -18,6 +18,6 @@ class DetailsActivity : BaseActivity<DetailsView, DetailsPresenter>(R.layout.act
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter.onViewCreated(intent.getParcelableExtra(INPUT_MODEL_KEY))
+        presenter.onViewCreated(intent.getParcelableExtra(DETAILS_INPUT_MODEL_KEY))
     }
 }

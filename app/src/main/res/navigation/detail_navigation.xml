@@ -5,14 +5,10 @@
 
     <fragment
         android:id="@+id/detail_movie"
-        android:name="com.godeltech.pokedex.ui.features.details.region.RegionDetailsFragment" />
+        android:name="com.a.moviehelper.ui.feature.details.movie.MovieDetailsFragment" />
 
     <fragment
         android:id="@+id/detail_show"
-        android:name="com.godeltech.pokedex.ui.features.details.region.RegionDetailsFragment" />
-
-    <fragment
-        android:id="@+id/detail_person"
-        android:name="com.godeltech.pokedex.ui.features.details.region.RegionDetailsFragment" />
+        android:name="com.a.moviehelper.ui.feature.details.show.ShowDetailsFragment" />
 
 </navigation>

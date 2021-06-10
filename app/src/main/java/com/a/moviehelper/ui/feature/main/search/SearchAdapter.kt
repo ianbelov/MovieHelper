@@ -11,7 +11,8 @@ import com.a.moviehelper.databinding.ItemMovieWideBinding
 
 class SearchAdapter constructor(
     private val imageLoader: CoilImageLoader,
-    private val onMovieClick: () -> Unit
+    private val onMovieClick: (id:String) -> Unit,
+    private val onShowClick: (id:String) -> Unit
 ) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     private var movies: ArrayList<SearchModel> = ArrayList()
@@ -22,9 +23,7 @@ class SearchAdapter constructor(
     ): ViewHolder {
         val binding =
             ItemMovieWideBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-                .apply {
-                    root.setOnClickListener { onMovieClick.invoke() }
-                }
+
         return ViewHolder(binding)
     }
 
@@ -32,6 +31,13 @@ class SearchAdapter constructor(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(movies[position], imageLoader)
+        holder.binding.root.setOnClickListener {
+            if(movies[position].type=="movie"){
+                onMovieClick(movies[position].id)
+            } else if(movies[position].type=="show"){
+                onShowClick(movies[position].id)
+            }
+        }
     }
 
     fun setData(movieList: List<SearchModel>) {

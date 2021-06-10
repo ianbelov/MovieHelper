@@ -3,6 +3,7 @@ package com.a.moviehelper.di.module
 import com.a.moviehelper.ui.feature.details.DetailsActivity
 import com.a.moviehelper.ui.feature.details.DetailsModule
 import com.a.moviehelper.ui.feature.details.movie.MovieDetailsProvider
+import com.a.moviehelper.ui.feature.details.show.ShowDetailsProvider
 import com.a.moviehelper.ui.feature.main.MainActivity
 import com.a.moviehelper.ui.feature.main.MainModule
 import com.a.moviehelper.ui.feature.main.main.MainProvider
@@ -26,6 +27,6 @@ abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = [MainModule::class, MainProvider::class, SearchProvider::class])
     abstract fun contributeMain(): MainActivity
 
-    @ContributesAndroidInjector(modules = [DetailsModule::class, MovieDetailsProvider::class])
+    @ContributesAndroidInjector(modules = [DetailsModule::class, MovieDetailsProvider::class, ShowDetailsProvider::class])
     abstract fun contributeDetails(): DetailsActivity
 }

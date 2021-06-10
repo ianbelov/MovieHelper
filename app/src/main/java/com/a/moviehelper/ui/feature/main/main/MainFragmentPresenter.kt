@@ -5,6 +5,7 @@ import com.a.moviehelper.common.base.BasePresenter
 import com.a.moviehelper.common.rx.RxSchedulers
 import com.a.moviehelper.core.network.movies.MainRepository
 import com.a.moviehelper.core.network.movies.MovieModel
+import com.a.moviehelper.ui.feature.details.DetailsInputModel
 import com.a.moviehelper.ui.feature.main.MainNavigator
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -60,6 +61,10 @@ class MainFragmentPresenter @Inject constructor(
     }
 
     fun movieClicked(id:String){
-        navigator.navigateToDetails()
+        navigator.navigateToDetails(DetailsInputModel.Movie(id))
+    }
+
+    fun showClicked(id:String){
+        navigator.navigateToDetails(DetailsInputModel.Show(id))
     }
 }

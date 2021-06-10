@@ -10,6 +10,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MovieDetailsProvider {
 
-    @ContributesAndroidInjector(modules = [DetailsModule::class])
+    @ContributesAndroidInjector(modules = [MovieDetailsModule::class])
     abstract fun contributeMovieDetailsFragment(): MovieDetailsFragment
 }

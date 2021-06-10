@@ -54,11 +54,11 @@ class MainFragment : BaseFragment<MainView, MainFragmentPresenter>(R.layout.frag
     private fun initAdapters() {
         movieAdapter = MainMovieAdapter(
             imageLoader = imageLoader,
-            onMovieClick = { Log.d("clicked", it) },
+            onMovieClick = { presenter.movieClicked(it) },
         )
         showAdapter = MainMovieAdapter(
             imageLoader = imageLoader,
-            onMovieClick = { },
+            onMovieClick = { presenter.showClicked(it) },
         )
         binding.moviesRecyclerView.run {
             layoutManager = GridLayoutManager(context, 3, GridLayoutManager.HORIZONTAL, false)
