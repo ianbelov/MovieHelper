@@ -8,6 +8,7 @@ import com.a.moviehelper.core.network.module.ServicesModule
 import com.a.moviehelper.di.module.ActivityBindingModule
 import com.a.moviehelper.di.module.ContextModule
 import com.a.moviehelper.di.module.SharedPrefModule
+import com.godeltech.pokedex.core.firebase.FirebaseModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -22,7 +23,8 @@ import javax.inject.Singleton
         ParserModule::class,
         ContextModule::class,
         SharedPrefModule::class,
-        ServicesModule::class]
+        ServicesModule::class,
+        FirebaseModule::class]
 )
 interface AppComponent : AndroidInjector<MovieApplication> {
 

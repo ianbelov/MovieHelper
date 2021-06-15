@@ -5,7 +5,7 @@ import androidx.annotation.CallSuper
 import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModelProvider
-import com.a.moviehelper.common.utils.getGenericClass
+import com.godeltech.pokedex.common.utils.getGenericClass
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 

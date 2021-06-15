@@ -1,4 +1,4 @@
-package com.a.moviehelper.common.utils
+package com.godeltech.pokedex.common.utils
 
 import androidx.activity.ComponentActivity
 import androidx.fragment.app.Fragment

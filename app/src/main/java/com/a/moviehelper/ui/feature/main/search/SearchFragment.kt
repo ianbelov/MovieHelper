@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.widget.addTextChangedListener
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.a.moviehelper.R
 import com.a.moviehelper.common.base.BaseFragment
 import com.a.moviehelper.common.imageloading.CoilImageLoader
 import com.a.moviehelper.common.viewbinding.viewBinding
-import com.a.moviehelper.core.network.movies.MovieModel
 import com.a.moviehelper.core.network.search.SearchModel
 import com.a.moviehelper.databinding.FragmentSearchBinding
-import com.a.moviehelper.ui.feature.main.main.MainMovieAdapter
 import com.a.moviehelper.ui.view.EndlessRecyclerViewScrollListener
 import javax.inject.Inject
 

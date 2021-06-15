@@ -25,4 +25,9 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(R.layout.activity_mai
             true
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.onViewCreated()
+    }
 }

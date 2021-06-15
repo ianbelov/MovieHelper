@@ -7,9 +7,6 @@ import com.a.moviehelper.core.network.movies.MainRepository
 import com.a.moviehelper.core.network.movies.MovieModel
 import com.a.moviehelper.ui.feature.details.DetailsInputModel
 import com.a.moviehelper.ui.feature.main.MainNavigator
-import io.reactivex.rxjava3.kotlin.subscribeBy
-import io.reactivex.rxjava3.subjects.PublishSubject
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class MainFragmentPresenter @Inject constructor(

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "996110864761",
+    "firebase_url": "https://movie-helper-b8ad0-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "movie-helper-b8ad0",
+    "storage_bucket": "movie-helper-b8ad0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996110864761:android:d593022924fb10820b9fa8",
+        "android_client_info": {
+          "package_name": "com.a.moviehelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996110864761-31vn0p4639ea8gjrrl2kjdjp2t3ge4ug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0B3dLS1hIN5Bgr11OsriwWXBKF34QdiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996110864761-31vn0p4639ea8gjrrl2kjdjp2t3ge4ug.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

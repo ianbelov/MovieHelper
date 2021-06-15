@@ -1,6 +1,5 @@
 package com.a.moviehelper.common.viewbinding
 
-import android.util.Log
 import android.view.View
 import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment

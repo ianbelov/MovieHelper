@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimen_spacing_xxs">2dp</dimen>
+    <dimen name="dimen_spacing_xs">4dp</dimen>
+    <dimen name="dimen_spacing_s">8dp</dimen>
+    <dimen name="dimen_spacing_m">12dp</dimen>
+    <dimen name="dimen_spacing_l">16dp</dimen>
+    <dimen name="dimen_spacing_xl">24dp</dimen>
+    <dimen name="dimen_spacing_xxl">32dp</dimen>
+    <dimen name="dimen_spacing_xxxl">48dp</dimen>
+
+    <dimen name="dimen_size_headline_1">48sp</dimen>
+    <dimen name="dimen_size_headline_2">30sp</dimen>
+    <dimen name="dimen_size_headline_3">20sp</dimen>
+    <dimen name="dimen_size_headline_4">20sp</dimen>
+    <dimen name="dimen_size_button_1">17sp</dimen>
+    <dimen name="dimen_size_button_2">14sp</dimen>
+    <dimen name="dimen_size_text">18sp</dimen>
+    <dimen name="dimen_size_text_field">12sp</dimen>
+
+    <dimen name="dimen_line_height_headline_1">57sp</dimen>
+    <dimen name="dimen_line_height_headline_2">36sp</dimen>
+    <dimen name="dimen_line_height_headline_3">24sp</dimen>
+    <dimen name="dimen_line_height_headline_4">24sp</dimen>
+    <dimen name="dimen_line_height_button_1">20sp</dimen>
+    <dimen name="dimen_line_height_button_2">17sp</dimen>
+    <dimen name="dimen_line_height_text">20sp</dimen>
+    <dimen name="dimen_line_height_text_field">14sp</dimen>
+
+    <dimen name="dimen_letter_spacing">0.04</dimen>
+    <dimen name="dimen_letter_no_spacing">0</dimen>
+
+    <!-- Buttons -->
+    <dimen name="dimen_button_height">48dp</dimen>
+    <dimen name="dimen_button_small_height">32dp</dimen>
+    <dimen name="dimen_button_corner_radius">20dp</dimen>
+    <dimen name="dimen_button_horizontal_spacing">40dp</dimen>
+    <dimen name="dimen_button_horizontal_spacing_xxl">72dp</dimen>
+    <dimen name="dimen_button_skip_end">12dp</dimen>
+    <dimen name="dimen_button_skip_top">4dp</dimen>
+    <dimen name="dimen_button_sign_bottom">16dp</dimen>
+    <dimen name="dimen_button_next_bottom">16dp</dimen>
+    <dimen name="dimen_button_login_bottom_spacing">68dp</dimen>
+
+    <dimen name="dimen_progress_indicator_side">48dp</dimen>
+
+    <dimen name="dimen_recycler_view_padding">4dp</dimen>
+
+    <dimen name="dimen_pokemon_card_horizontal">16dp</dimen>
+    <dimen name="dimen_pokemon_card_vertical">4dp</dimen>
+
+    <dimen name="dimen_toolbar_vertical">10dp</dimen>
+    <dimen name="dimen_toolbar_height">56dp</dimen>
+
+    <dimen name="dimen_region_details_species_top_spacing">40dp</dimen>
+    <dimen name="dimen_region_details_species_height">56dp</dimen>
+
+    <dimen name="dimen_stats_chart_horizontal_spacing">64dp</dimen>
+    <dimen name="dimen_stats_chart_description_vertical_spacing">6dp</dimen>
+    <dimen name="dimen_stats_chart_min_side">14dp</dimen>
+
+    <dimen name="dimen_spacing_checkbox">18dp</dimen>
+    <dimen name="dimen_filter_card_height">48dp</dimen>
+    <dimen name="dimen_edit_text_horizontal_spacing">40dp</dimen>
+
+</resources>

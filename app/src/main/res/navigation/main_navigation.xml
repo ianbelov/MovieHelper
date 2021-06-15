@@ -17,9 +17,12 @@
         tools:layout="@layout/fragment_auth_profile" />
     <fragmentTab
         android:id="@+id/main_profile"
-        android:name="com.a.moviehelper.ui.feature.main.profile.ProfileFragment"
+        android:name="com.a.moviehelper.ui.feature.main.profile.unauthorized.UnauthorizedProfileFragment"
         tools:layout="@layout/fragment_profile" />
     <activity
         android:id="@+id/main_details"
         android:name="com.a.moviehelper.ui.feature.details.DetailsActivity"/>
+    <activity
+        android:id="@+id/main_login"
+        android:name="com.a.moviehelper.ui.feature.login.LoginActivity"/>
 </navigation>

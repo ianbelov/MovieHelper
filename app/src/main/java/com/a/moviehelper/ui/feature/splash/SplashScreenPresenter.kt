@@ -4,7 +4,6 @@ import com.a.moviehelper.common.base.BasePresenter
 import com.a.moviehelper.core.sharedpref.SharedPrefProvider
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.subscribeBy
-import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 

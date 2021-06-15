@@ -1,7 +1,6 @@
 package com.a.moviehelper.ui.feature.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.a.moviehelper.R
 import com.a.moviehelper.common.base.BaseActivity

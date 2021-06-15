@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Style.CardView" parent="Theme.MovieHelper">
+        <item name="cardBackgroundColor">@color/gray</item>
+        <item name="cardCornerRadius">@dimen/dimen_button_corner_radius</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="Style.RoundImageView" parent="">
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="Style.CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Style.OutlinedInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/purple_200</item>
+        <item name="startIconTint">@color/purple_700</item>
+        <item name="hintTextColor">@color/gray</item>
+        <item name="android:textAppearance">@style/Text.Text.ColorText1Text</item>
+
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+
+        <item name="errorIconDrawable">@null</item>
+        <item name="helperTextTextAppearance">@style/Text.TextField</item>
+
+        <item name="boxCornerRadiusBottomEnd">@dimen/dimen_button_corner_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dimen_button_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dimen_button_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dimen_button_corner_radius</item>
+    </style>
+
+    <style name="Style.EditText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="singleLine">true</item>
+        <item name="android:hint">Email</item>
+        <item name="android:textAppearance">@style/Text.Text.ColorText1Text</item>
+    </style>
+
+</resources>

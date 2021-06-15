@@ -4,8 +4,6 @@ import android.util.Log
 import com.a.moviehelper.common.base.BasePresenter
 import com.a.moviehelper.common.rx.RxSchedulers
 import com.a.moviehelper.core.network.details.DetailsRepository
-import com.a.moviehelper.ui.feature.details.movie.MovieDetailsInputModel
-import com.a.moviehelper.ui.feature.details.movie.MovieDetailsView
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 

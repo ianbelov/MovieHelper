@@ -2,17 +2,13 @@ package com.a.moviehelper.ui.feature.details.movie
 
 import android.os.Bundle
 import android.view.View
-import coil.Coil
-import coil.request.ImageRequest
 import com.a.moviehelper.R
 import com.a.moviehelper.common.base.BaseFragment
-import com.a.moviehelper.common.imageloading.IImageLoader
 import com.a.moviehelper.common.viewbinding.viewBinding
 import com.a.moviehelper.core.network.NetworkUtils
 import com.a.moviehelper.core.network.movies.MovieModel
 import com.a.moviehelper.databinding.FragmentMovieDetailsBinding
 import com.bumptech.glide.Glide
-import javax.inject.Inject
 
 class MovieDetailsFragment :
     BaseFragment<MovieDetailsView, MovieDetailsPresenter>(R.layout.fragment_movie_details),
