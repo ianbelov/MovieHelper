@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -19,11 +20,15 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttp(cache: Cache, cachingInterceptor: CachingInterceptor): OkHttpClient =
-        OkHttpClient.Builder()
+    fun provideOkHttp(cache: Cache, cachingInterceptor: CachingInterceptor): OkHttpClient {
+        val logInterceptor = HttpLoggingInterceptor()
+        logInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        return OkHttpClient.Builder()
+            .addInterceptor(logInterceptor)
             .cache(cache)
             .addInterceptor(cachingInterceptor)
             .build()
+    }
 
     @Provides
     @Singleton

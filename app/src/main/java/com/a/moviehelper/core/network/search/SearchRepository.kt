@@ -14,4 +14,16 @@ class SearchRepository @Inject constructor(private val searchService: SearchServ
     fun searchGenre(query: Int, page: Int) =
         searchService.searchGenre(query, page, NetworkUtils.API_KEY)
 
+    fun searchProviders(
+        source: String,
+        sourceId: String
+    ) =
+        searchService.searchProviders(
+            source,
+            sourceId,
+            "us",
+            NetworkUtils.RAPID_API_KEY,
+            NetworkUtils.RAPID_API_HOST
+        )
+
 }
